@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#3F51B5"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.MainActivity"
+    app:layoutDescription="@xml/activity_main_scene">
 
 
     <SearchView
@@ -54,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:outlineProvider="bounds"
         android:src="@drawable/sun_cloud"
         app:layout_constraintEnd_toEndOf="parent"
@@ -169,13 +170,15 @@
         app:layout_constraintTop_toTopOf="@+id/temp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
         android:background="@drawable/layout_shape"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/temp_txt" >
+        app:layout_constraintTop_toBottomOf="@id/temp_txt"
+        >
 
         <View
             android:id="@+id/view3"
@@ -187,129 +190,142 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@color/white"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/view3">
 
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/pieChart"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_margin="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        </LinearLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutForCity"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="24dp"
-            android:background="@drawable/card_shape"
-            android:padding="16dp"
-            android:paddingBottom="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-            <ImageView
-                android:id="@+id/icon_weather1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:outlineProvider="bounds"
-
-                android:src="@drawable/ic_sunset"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-
-                android:id="@+id/l"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="sunset"
-                android:textColor="#7A7B7C"
-                android:textSize="14sp"
+                android:layout_margin="16dp"
+
+                android:background="@drawable/card_shape"
+                android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/view3">
 
-            <TextView
-                android:id="@+id/sunset"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="11:10 AM"
-                android:textColor="#3F51B5"
-                android:textSize="32sp"
-                app:layout_constraintStart_toStartOf="@id/l"
-                app:layout_constraintTop_toBottomOf="@+id/l" />
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/pieChart"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+            </LinearLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutForCity2"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="24dp"
-            android:background="@drawable/card_shape"
-            android:padding="16dp"
-            android:paddingBottom="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layoutForCity">
-
-            <ImageView
-                android:id="@+id/icon_weather2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:outlineProvider="bounds"
-
-                android:src="@drawable/ic_sun_with_cloud"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-
-                android:id="@+id/l1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="sunrise"
-                android:textColor="#7A7B7C"
-                android:textSize="14sp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutForCity"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/card_shape"
+                android:padding="16dp"
+                android:paddingBottom="10dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-            <TextView
-                android:id="@+id/sunrise"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="11:10 AM"
-                android:textColor="#3F51B5"
-                android:textSize="32sp"
-                app:layout_constraintStart_toStartOf="@id/l1"
-                app:layout_constraintTop_toBottomOf="@+id/l1" />
+                <ImageView
+                    android:id="@+id/icon_weather1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:outlineProvider="bounds"
+
+                    android:src="@drawable/ic_sunset"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+
+                    android:id="@+id/l"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="sunset"
+                    android:textColor="#7A7B7C"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/sunset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="11:10 AM"
+                    android:layout_marginTop="8dp"
+
+                    android:textColor="#3F51B5"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/l"
+                    app:layout_constraintTop_toBottomOf="@+id/l" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutForCity2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/card_shape"
+                android:padding="16dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutForCity">
+
+                <ImageView
+                    android:id="@+id/icon_weather2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:outlineProvider="bounds"
+
+                    android:src="@drawable/ic_sun_with_cloud"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+
+                    android:id="@+id/l1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="sunrise"
+                    android:textColor="#7A7B7C"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/sunrise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="11:10 AM"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#3F51B5"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/l1"
+                    app:layout_constraintTop_toBottomOf="@+id/l1" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutForCity3"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_margin="24dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/card_shape"
             android:padding="16dp"
             android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layoutForCity2">
 
@@ -342,8 +358,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:text="2318"
+                android:layout_marginTop="8dp"
+
                 android:textColor="#3F51B5"
-                android:textSize="32sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@id/l2"
                 app:layout_constraintTop_toBottomOf="@+id/l2" />
 
@@ -352,7 +370,6 @@
 
 
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

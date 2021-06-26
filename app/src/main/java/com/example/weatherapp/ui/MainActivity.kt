@@ -92,9 +92,9 @@ class MainActivity : AppCompatActivity() {
 //                            val iconUrl="http://openweathermap.org/img/w/$icon.png"
 //                            Glide.with(this@MainActivity).load(iconUrl).into(iconWeather)
                             setWeatherIcon(result.weather[0].id)
-//                            sunsetTxt.text= SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date((result.sys.sunset).toLong()*1000))
-//                            sunriseTxt.text= SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date((result.sys.sunrise).toLong()*1000))
-
+                            sunset.text= SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date((result.sys.sunset).toLong()*1000))
+                            sunrise.text= SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date((result.sys.sunrise).toLong()*1000))
+                            pressure.text=result.main.pressure.toString()
                         }}
                }
             }
@@ -144,7 +144,7 @@ class MainActivity : AppCompatActivity() {
         val width = paint.measureText(State)
         val textShader: Shader = LinearGradient(0f, 0f, width, weatherState.textSize, intArrayOf(
             Color.parseColor("#ffffff"),
-            Color.parseColor("#B3BEFF"),
+            Color.parseColor("#72BEF9"),
 
             ), null, Shader.TileMode.REPEAT)
         weatherState.paint.shader = textShader
@@ -193,7 +193,7 @@ class MainActivity : AppCompatActivity() {
         dataSet.colors = colors
         binding.pieChart.data = data
         data.setValueTextSize(15f)
-        binding.pieChart.setExtraOffsets(5f, 10f, 5f, 5f)
+        binding.pieChart.setExtraOffsets(5f, 5f, 5f, 5f)
         binding.pieChart.animateY(1400, Easing.EaseInOutQuad)
 
         //create hole in center
