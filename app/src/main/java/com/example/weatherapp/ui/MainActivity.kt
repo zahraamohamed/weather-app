@@ -92,8 +92,8 @@ class MainActivity : AppCompatActivity() {
 //                            val iconUrl="http://openweathermap.org/img/w/$icon.png"
 //                            Glide.with(this@MainActivity).load(iconUrl).into(iconWeather)
                             setWeatherIcon(result.weather[0].id)
-                            sunsetTxt.text= SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date((result.sys.sunset).toLong()*1000))
-                            sunriseTxt.text= SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date((result.sys.sunrise).toLong()*1000))
+//                            sunsetTxt.text= SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date((result.sys.sunset).toLong()*1000))
+//                            sunriseTxt.text= SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date((result.sys.sunrise).toLong()*1000))
 
                         }}
                }
