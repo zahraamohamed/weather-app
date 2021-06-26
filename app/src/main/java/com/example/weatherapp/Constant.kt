@@ -10,5 +10,6 @@ object Constant {
             const val API_KEY_VALUE = "8118ed6ee68db2debfaaa5a44c832918"
             const val RATE_LIMITER_TYPE = "q"
             const val API_KEY_QUERY = "appid"
-
+            const val UNITS = "units"
+            const val MATRIC = "imperial"
 }
